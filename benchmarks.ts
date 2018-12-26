@@ -45,7 +45,7 @@ THE SOFTWARE.
 // Copyright 2018 Terrain Data, Inc.
 
 import { List } from 'immutable';
-import * as yadeep from 'shared/util/yadeep';
+import * as yadeep from './yadeep';
 
 /*
  *  Using Date.now() as a placeholder until we figure out an actual package to do benchmarking
@@ -126,7 +126,7 @@ export default class Benchmarking
     minTime?: number,
   ): Array<{ time1: number, time2: number, difference: number }>
   {
-    const runs = [];
+    const runs: any[] = [];
     for (const args of argSets)
     {
       const t1 = Benchmarking.time(() => fn1(args), chunk, minTime);
