@@ -11,7 +11,7 @@ _Yet another deep JSON getter/setter module_
 Several libraries already exist for getting and setting fields in deep JSON objects.  However,
 none had the flexibility we needed for building an enterprise-quality ETL solution.
 
-A key differentiator is that `yadeep` builds on top of [terrain-keypath](https://github.com/terraindata/terrain-keypath].
+A key differentiator is that `yadeep` builds on top of [terrain-keypath](https://github.com/terraindata/terrain-keypath).
 This means:
 
  * We can work with **any** field name in a JSON document.  Do you have field names like `'*'`, `'.'`, etc.?  yadeep has
