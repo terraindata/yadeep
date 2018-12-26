@@ -5,7 +5,7 @@ Copyright (c) 2018 Terrain Data, Inc. and the authors. All rights reserved.
 
 Developed by: Terrain Data, Inc. and
               the individuals who committed the code in this file.
-              https://github.com/terraindata/terrain
+              https://github.com/terraindata/yadeep
                   
 Permission is hereby granted, free of charge, to any person 
 obtaining a copy of this software and associated documentation files 
@@ -45,9 +45,9 @@ THE SOFTWARE.
 // Copyright 2018 Terrain Data, Inc.
 
 import * as _ from 'lodash';
-import objectify from '../../util/deepObjectify';
-import { KeyPath } from '../../util/KeyPath';
-import * as yadeep from '../../util/yadeep';
+import objectify from 'deep-objectify';
+import { KeyPath } from 'terrain-keypath';
+import * as yadeep from './yadeep';
 
 const doc3: object = {
   name: 'Bob',
@@ -84,21 +84,21 @@ test('double wildcard sensible nested get', () =>
 
 test('simple top-level set', () =>
 {
-  const copy: object = { ...objd };
+  const copy: any = { ...objd };
   yadeep.set(copy, KeyPath(['name']), 'jim');
   expect(copy['name']).toBe('jim');
 });
 
 test('a deep set', () =>
 {
-  const copy: object = { ...objd };
+  const copy: any = { ...objd };
   yadeep.set(copy, KeyPath(['arr', '1', '0', 'a']), 'jim');
   expect(copy['arr']['1']['0']['a']).toBe('jim');
 });
 
 test('a deep set with a wildcard', () =>
 {
-  const copy: object = { ...objd };
+  const copy: any = { ...objd };
   yadeep.set(copy, KeyPath(['arr', '1', -1, 'a']), 'jim');
   expect(copy['arr']['1']['0']['a']).toBe('jim');
   expect(copy['arr']['1']['1']['a']).toBe('jim');

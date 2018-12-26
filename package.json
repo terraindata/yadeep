@@ -1,0 +1,61 @@
+{
+  "name": "yadeep",
+  "version": "1.0.0",
+  "description": "Yet another deep JSON getter and setter",
+  "main": "dist/yadeep.js",
+  "typings": "dist/yadeep.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terraindata/yadeep.git"
+  },
+  "keywords": [
+    "deep",
+    "JSON",
+    "objects",
+    "get",
+    "set",
+    "search"
+  ],
+  "author": "Terrain Data, Inc.",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/terraindata/yadeep/issues"
+  },
+  "homepage": "https://github.com/terraindata/yadeep#readme",
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "dist"
+    ],
+    "testRegex": "/.+Tests\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "deep-objectify": "^1.0.3",
+    "lodash": "^4.17.11",
+    "terrain-keypath": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/lodash": "^4.14.119",
+    "@types/node": "^10.12.18",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.2"
+  }
+}

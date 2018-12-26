@@ -5,7 +5,7 @@ Copyright (c) 2018 Terrain Data, Inc. and the authors. All rights reserved.
 
 Developed by: Terrain Data, Inc. and
               the individuals who committed the code in this file.
-              https://github.com/terraindata/terrain
+              https://github.com/terraindata/yadeep
                   
 Permission is hereby granted, free of charge, to any person 
 obtaining a copy of this software and associated documentation files 
@@ -51,9 +51,9 @@ THE SOFTWARE.
  * `KeyPath`s, including wildcards for operating
  * on all children.
  */
-import isPrimitive = require('is-primitive');
+const isPrimitive = require('is-primitive');
 import * as _ from 'lodash';
-import { KeyPath, WayPoint } from './KeyPath';
+import { KeyPath, WayPoint } from 'terrain-keypath';
 
 /**
  * Generic traversal method for a deeply-nested object.
@@ -64,7 +64,7 @@ import { KeyPath, WayPoint } from './KeyPath';
  * on any target values (e.g. get or set those values).
  *
  * NOTE that this is tested primarily against objectified
- * documents (see `deepObjectify`).  Deeply nested objects
+ * documents (see `deep-objectify`).  Deeply nested objects
  * with true arrays may result in undesired behavior sometimes.
  * This function is much simpler not having to worry about
  * processing true arrays.
@@ -81,7 +81,7 @@ import { KeyPath, WayPoint } from './KeyPath';
  *                create a target path in the doc if it
  *                doesn't already exist.
  */
-export function find(obj: object, path: KeyPath, next: (found) => any, options: object = {}): void
+export function find(obj: object, path: KeyPath, next: (found: any) => any, options: object = {}): void
 {
   if (path.size === 0 || obj === null || obj === undefined)
   {
@@ -289,7 +289,7 @@ function searchRecurse(obj: object | any[], path: KeyPath, cb: (match: ContextRe
 export function search(obj: object, path: KeyPath): ContextResult[]
 {
   // return Array.from(searchDFS(obj, path));
-  const results = [];
+  const results: any[] = [];
   searchRecurse(obj, path, (result) => results.push(result));
   return results;
 }

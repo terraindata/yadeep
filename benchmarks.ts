@@ -5,7 +5,7 @@ Copyright (c) 2018 Terrain Data, Inc. and the authors. All rights reserved.
 
 Developed by: Terrain Data, Inc. and
               the individuals who committed the code in this file.
-              https://github.com/terraindata/terrain
+              https://github.com/terraindata/yadeep
                   
 Permission is hereby granted, free of charge, to any person 
 obtaining a copy of this software and associated documentation files 
