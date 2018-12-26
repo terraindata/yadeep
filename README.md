@@ -19,6 +19,9 @@ This means:
    wildcards, etc.
  * We can get and set on **wildcard** keypaths.  Do you want to increment the values of all children of an object?  Or
    are you writing some aggregation function on deeply-nested sub-documents?  yadeep will help.
+ * We can also handle some level of **nested wildcards**.  Keypath expressions with multiple wildcard tokens will try
+   to behave in a semantically intuitive way (though expressions with more than two wildcard tokens are quite exotic
+   in the real world and hence not well-tested).
 
 yadeep also aims to provide the simplest syntax it can while still supporting this level of generality.  If you accept
 our keypath conventions, you can immediately use `yadeep.get(object, keypath)` and `yadeep.set(object, keypath, value)`;
