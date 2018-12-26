@@ -1,6 +1,6 @@
 {
   "name": "yadeep",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Yet another deep JSON getter and setter",
   "main": "dist/yadeep.js",
   "typings": "dist/yadeep.d.ts",
