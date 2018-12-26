@@ -24,7 +24,7 @@ yadeep also aims to provide the simplest syntax it can while still supporting th
 our keypath conventions, you can immediately use `yadeep.get(object, keypath)` and `yadeep.set(object, keypath, value)`;
 the aim is to make the API human readable and somewhat self-documenting.
 
-Additional functions for searching in and traversing deep JSON objects can be found in the [yadeep.ts](code).
+Additional functions for searching in and traversing deep JSON objects can be found in the [code](https://github.com/terraindata/yadeep/blob/master/yadeep.ts).
 
 TypeScript definitions included!
 
