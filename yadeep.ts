@@ -90,7 +90,8 @@ export function find(obj: object, path: KeyPath, next: (found: any) => any, opti
     return;
   }
 
-  const waypoint: WayPoint = path.get(0).toString();
+  // path will have at least one element based on the above check, so safe to cast
+  const waypoint: WayPoint = (path.get(0) as WayPoint).toString();
 
   const keys: string[] = Object.keys(obj);
 
@@ -250,7 +251,8 @@ function searchRecurse(obj: object | any[], path: KeyPath, cb: (match: ContextRe
     return;
   }
 
-  const waypoint = path.get(index);
+  // index is < path.size by the above checks so this cast is safe
+  const waypoint: WayPoint = path.get(index) as WayPoint;
 
   if (waypoint === -1)
   {
@@ -310,8 +312,8 @@ export function setIn(obj: object, path: KeyPath, value): object
   let curr = obj;
   for (let i = 0; i < path.size - 1; i++)
   {
-    const waypoint = path.get(i);
-    const nextWaypoint = path.get(i + 1);
+    const waypoint: WayPoint = path.get(i) as WayPoint;
+    const nextWaypoint: WayPoint = path.get(i + 1) as WayPoint;
     if (typeof nextWaypoint === 'number')
     {
       if (curr[waypoint] == null)
@@ -336,7 +338,7 @@ export function setIn(obj: object, path: KeyPath, value): object
     }
     curr = curr[waypoint];
   }
-  curr[path.last()] = value;
+  curr[path.last() as WayPoint] = value;
   return obj;
 }
 
@@ -352,7 +354,7 @@ export function deleteIn(obj: object, path: KeyPath)
   let curr = obj;
   for (let i = 0; i < path.size - 1; i++)
   {
-    const waypoint = path.get(i);
+    const waypoint = path.get(i) as WayPoint;
     if (curr[waypoint] == null)
     {
       return false;
@@ -361,7 +363,7 @@ export function deleteIn(obj: object, path: KeyPath)
   }
   if (curr.hasOwnProperty(path.last()))
   {
-    delete curr[path.last()];
+    delete curr[path.last() as WayPoint];
     return true;
   }
   else
